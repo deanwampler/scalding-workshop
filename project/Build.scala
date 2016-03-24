@@ -3,21 +3,22 @@ import sbt.Keys._
 
 object BuildSettings {
 
+  // NOTE: If you change the version, change the strings in the "run*"
+  // scripts. They should detect the version automatically (TODO).
+  val Version       = "0.4.1"
   val Name          = "scalding-workshop"
   val Organization  = "com.concurrentthought"
-  val Version       = "0.4.0"
   val Description   = "Scalding Workshop"
-  val ScalaVersion  = "2.10.3"
+  val ScalaVersion  = "2.11.7"
   val ScalacOptions = Seq("-deprecation", "-unchecked", "-encoding", "utf8")
 
-  val basicSettings = Defaults.defaultSettings ++ Seq (
+  val basicSettings = Defaults.coreDefaultSettings ++ Seq (
     name          := Name,
     organization  := Organization,
     version       := Version,
     description   := Description,
     scalaVersion  := ScalaVersion,
-    scalacOptions := ScalacOptions,
-    shellPrompt   := ShellPrompt.Prompt
+    scalacOptions := ScalacOptions
   )
 
   // sbt-assembly settings for building a fat jar that includes all dependencies.
@@ -34,12 +35,13 @@ object BuildSettings {
     // in Hadoop deployments or aren't needed for local mode execution.
     excludedJars in assembly <<= (fullClasspath in assembly) map { cp =>
       val excludes = Set(
-        "scala-compiler.jar",
+        "scala-compiler-2.11.7.jar",
+        "scala-compiler-2.10.6.jar",
         "jsp-api-2.1-6.1.14.jar",
         "jsp-2.1-6.1.14.jar",
         "jasper-compiler-5.5.12.jar",
         "minlog-1.2.jar", // Otherwise causes conflicts with Kyro (which bundles it)
-        "janino-2.5.16.jar", // Janino includes a broken signature, and is not needed anyway
+        "janino-2.7.5.jar", // Janino includes a broken signature, and is not needed anyway
         "commons-beanutils-core-1.8.0.jar", // Clash with each other and with commons-collections
         "commons-beanutils-1.7.0.jar"
       )
@@ -49,6 +51,7 @@ object BuildSettings {
     mergeStrategy in assembly <<= (mergeStrategy in assembly) {
       (old) => {
         case "project.clj" => MergeStrategy.discard // Leiningen build files
+        case "about.html"  => MergeStrategy.discard // From Jetty
         case x => old(x)
       }
     }
@@ -57,28 +60,6 @@ object BuildSettings {
   lazy val buildSettings = basicSettings ++ sbtAssemblySettings
 }
 
-// Shell prompt which show the current project,
-// git branch and build version
-object ShellPrompt {
-  object devnull extends ProcessLogger {
-    def info (s: => String) {}
-    def error (s: => String) { }
-    def buffer[T] (f: => T): T = f
-  }
-  def currBranch = (
-    ("git status -sb" lines_! devnull headOption)
-      getOrElse "-" stripPrefix "## "
-  )
-
-  val Prompt = {
-    (state: State) => {
-      val currProject = Project.extract (state).currentProject.id
-      "%s (git: %s) %s> ".format (
-        currProject, currBranch, BuildSettings.Version
-      )
-    }
-  }
-}
 
 object Resolvers {
   val typesafe = "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
@@ -94,15 +75,15 @@ object Resolvers {
 
 object Dependency {
   object Version {
-    val Scalding    = "0.9.0rc4"
-    val Algebird    = "0.5.0"
-    val Bijection   = "0.6.2"
-    val Hadoop      = "1.1.2"
-    val ScalaTest   = "2.0.0"
-    val ScalaCheck  = "1.11.0"
-    val SummingBird = "0.1.0-SNAPSHOT"
-    val Logging     = "1.1.3"
-    val SLF4J       = "1.7.6"
+    val Scalding    = "0.15.0"
+    val Algebird    = "0.11.0"
+    val Bijection   = "0.9.2"
+    val Hadoop      = "2.7.0"
+    val ScalaTest   = "2.2.4"
+    val ScalaCheck  = "1.12.2"
+    val SummingBird = "0.9.1"
+    val Logging     = "1.2"
+    val SLF4J       = "1.7.19"
   }
 
   // ---- Application dependencies ----
@@ -138,8 +119,8 @@ object Dependencies {
 
   val scaldingWorkshop = Seq(
     scalaCompiler, scalding_args, scalding_core, scalding_date, 
-    algebird_core, algebird_util, bijection_core, logging, slf4j_logging)
-    // not yet available: summingbird_core, summingbird_scalding
+    algebird_core, algebird_util, bijection_core,
+    logging, slf4j_logging)
     // hadoop_core, scalaTest, scalaCheck)
 }
 

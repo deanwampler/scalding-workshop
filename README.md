@@ -35,13 +35,13 @@ On Windows:
     cd C:\fun
     git clone git://github.com/deanwampler/scalding-workshop.git
 
-### Java v1.6 or Better
+### Java v1.7 or Better
 
 If it's not already installed, install Java from [java.com](http://www.java.com/en/download/help/download_options.xml).
 
-### Scala v2.10.2 or v2.10.3
+### Scala v2.11.7 (or v2.10.6)
 
-We'll use a build of Scalding for Scala v2.10.2. Install Scala following the instructions [here](http://www.scala-lang.org/downloads).
+We'll use a build of Scalding for Scala v2.11.7 (although you can also use Scala v2.10.6). Install Scala following the instructions [here](http://www.scala-lang.org/downloads).
 
 ### SBT 
 
@@ -79,6 +79,8 @@ If you have Ruby installed on your system, there is a port of `run` in Ruby call
  
 See the Appendix below for "optional installs", if you decide to use Scalding after the tutorial you'll want to install some of these packages.
 
+> *NOTE:* There is now an interpreter "shell" mode available for Scalding. See the [Scalding README](https://github.com/twitter/scalding) for details.
+> 
 ## Next Steps
 
 You can now start with the workshop itself. Go to the companion [Workshop page](https://github.com/deanwampler/scalding-workshop/blob/master/Workshop.html).
@@ -86,6 +88,10 @@ You can now start with the workshop itself. Go to the companion [Workshop page](
 Note that there is a similar tutorial I wrote for Typesafe's [Activator](http://typesafe.com/activator) ecosystem of examples. See the [Scalding template](http://typesafe.com/activator/template/activator-scalding).
 
 ## Notes on Releases
+
+### V0.4.1 
+
+Upgraded to Scala v2.11.7, with optional support for v2.10.6, SBT 0.13.9, and upgraded dependencies like Algebird. However, adopting the newer features of Scalding, like the Typed API and the REPL/shell, haven't been adopted. Pull requests welcome!
 
 ### V0.4.0 
 

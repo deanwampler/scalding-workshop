@@ -10,10 +10,15 @@
 // For example, scald.rb handles invoking Scalding scripts as Hadoop jobs. 
 // This script is simpler and avoids some issues using "scald.rb".
 //
-// NOTE: This script requires Scala 2.10 or newer.
 // TODO: 
 //  1. Does not handle invocation from another directory.
 //  2. Test that our file separator logic works correctly on Windows!
+//  3. The "version" and "scalaVersion" values should be detected automatically.
+
+val version = "0.4.1"
+val scalaVersion = "2.11"
+// Increase (or decrease) this heap size size value if necessary.
+val heapSize = "-Xmx1g"
 
 val separator = java.io.File.separator match {
   case "\\" => "\\\\"
@@ -33,11 +38,8 @@ val help = """
   |and the "script_options" will be discussed for each exercise.
   |""".stripMargin
 
-// Increase (or decrease) this heap size size value if necessary.
-val heapSize = "-Xmx1g"
-val version  = "0.4.0"
-val assembly = s"target${separator}scala-2.10${separator}scalding-workshop-$version.jar"
-val libs     = s"target${separator}classes"
+val assembly = s"target${separator}scala-${scalaVersion}${separator}scalding-workshop-$version.jar"
+val libs = s"target${separator}classes"
 
 
 def extractPathNameScript(str: String): (String,String,String) = {
@@ -61,6 +63,7 @@ case class Options (
   path: String = "", 
   name: String = "", 
   script: String = "", 
+  scalaVersion: String = "2.11", 
   scaldingOptions: Vector[String] = Vector.empty, 
   scriptOptions: Vector[String] = Vector.empty)
 

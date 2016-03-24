@@ -14,14 +14,15 @@ I assume you have already completed the setup instructions in the [README](READM
 This document will explain many features of the Scalding and Cascading. The scripts themselves contain additional details. The Scalding and Cascading documentation has more information than we can cover here:
 
 * [Cascading Documentation](http://www.cascading.org/documentation/), especially the [Cascading User Guide](http://www.cascading.org/documentation/) and the [Javadocs](http://docs.cascading.org/cascading/2.0/javadoc/).
+* [Scalding Repo](https://github.com/twitter/scalding).
 * [Scalding Wiki](https://github.com/twitter/scalding/wiki).
-* Scalding Scaladocs are not online, but they can be built from the [Scalding Repo](https://github.com/twitter/scalding). For convenience, I have included these files in the workshop as `api.zip`. Unzip the file and open the [index](api/index.html).
+* [Scalding Scaladocs](http://twitter.github.io/scalding/#package)
 * [Movie Recommendations](http://blog.echen.me/2012/02/09/movie-recommendations-and-more-via-mapreduce-and-scalding/) is a fantastic blog post with detailed, non-trivial examples using Scalding.
 * [Scalding Example Project](https://github.com/snowplow/scalding-example-project) is a full example designed to run on Hadoop, specifically on Amazon's EMR (Elastic MapReduce) platform.
 
 ## Help a Brother Out!
 
-Feedback, patches, suggested additions are welcome! [Fork me](https://github.com/deanwampler/scalding-workshop).
+Feedback, patches, suggested additions are welcome! [Fork me](https://github.com/deanwampler/scalding-workshop). In particular, the workshop should be modernized to focus on the type-safe API and using the new REPL (shell).
 
 # Basic Cascading Concepts
 
@@ -553,6 +554,8 @@ The data set isn't large enough to find a lot of examples for many possible ngra
 #### Experiment with Different Prefixes
 
 Try other prefixes of different lengths. You don't have to specify a two-word prefix!
+
+You can also use regular expressions. Try replacing `love` with `(lov|hat)ed?`, which matches `love`, `loved`, `hate`, and `hated`.
 
 #### Try Using Other Text Files
 

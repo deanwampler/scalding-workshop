@@ -4,17 +4,21 @@
 # usage: run.rb scaldingscript.scala [options]
 #
 # Run.rb is an "approximate" port of the Scala "run" script, suitable for
-# users with Ruby installed (v0.8.7 or 0.9.X) Run.rb verifies that you
-# passed the name of a Scalding script (a Scala source file) as an argument,
-# compiles it, and invokes Scalding in "local" mode. Scalding comes with a
-# more sophisticated driver script called "scald.rb". For example, scald.rb
+# users with Ruby installed Run.rb verifies that you passed the name of
+# a Scalding script (a Scala source file) as an argument, compiles it, 
+# and invokes Scalding in "local" mode. Scalding comes with a more 
+# sophisticated driver script called "scald.rb". For example, scald.rb
 # handles invoking Scalding scripts as Hadoop jobs. This script is simpler
 # and avoids some issues using "scald.rb".
 
+# TODO: The VERSION and SCALA values should be detected automatically.
+VERSION = "0.4.1"
+SCALA = "2.11"
+
 # Increase (or decrease) this heap size value if necessary.
 HEAP = "-Xmx1g"
-VERSION = "0.3.0"
-ASSEMBLY = "target/ScaldingWorkshop-#{VERSION}.jar"
+
+ASSEMBLY = "target/scala-#{VERSION}/scalding-workshop-#{VERSION}.jar"
 LIBS = "lib/*"
 
 $LOAD_PATH << File.join(File.expand_path(File.dirname(File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__)), 'lib')
