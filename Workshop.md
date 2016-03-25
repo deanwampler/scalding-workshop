@@ -1,9 +1,9 @@
 # Scalding Workshop
 
-**Dean Wampler, Typesafe**<br/>
+**Dean Wampler, Lightbend**<br/>
 [dean@concurrentthought.com](mailto:dean@concurrentthought.com?subject=Question%20about%20your%20Scalding%20Workshop)<br/>
 [@deanwampler](https://twitter.com/deanwampler)<br/>
-[Typesafe](http://typesafe.com)
+[Lightbend](http://lightbend.com)
 
 ![Scalding logo](images/scalding-logo-small.png)
 

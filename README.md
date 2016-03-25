@@ -1,9 +1,9 @@
 # Scalding Workshop/Tutorial README
 
-**Dean Wampler, Typesafe**<br/>
+**Dean Wampler, Lightbend**<br/>
 [dean@concurrentthought.com](mailto:dean@concurrentthought.com?subject=Question%20about%20your%20Scalding%20Workshop)<br/>
 [@deanwampler](https://twitter.com/deanwampler)<br/>
-[Typesafe](http://typesafe.com)
+[Lightbend](http://lightbend.com)
 
 ![Scalding logo](images/scalding-logo-small.png)
 
@@ -85,8 +85,6 @@ See the Appendix below for "optional installs", if you decide to use Scalding af
 
 You can now start with the workshop itself. Go to the companion [Workshop page](https://github.com/deanwampler/scalding-workshop/blob/master/Workshop.html).
 
-Note that there is a similar tutorial I wrote for Typesafe's [Activator](http://typesafe.com/activator) ecosystem of examples. See the [Scalding template](http://typesafe.com/activator/template/activator-scalding).
-
 ## Notes on Releases
 
 ### V0.4.1 
@@ -118,7 +116,7 @@ First release for the StrangeLoop 2012 workshop.
 
 See the [Scalding GitHub page](https://github.com/twitter/scalding) for more information about Scalding. The [wiki](https://github.com/twitter/scalding/wiki) is indispensable. The Scaladocs for Scalding are [here](http://twitter.github.io/scalding/).
 
-I'm [Dean Wampler](mailto:dean@concurrentthought.com) from [Typesafe](http://typesafe.com). I prepared this workshop. Send me email with [questions about the workshop](mailto:dean@concurrentthought.com?subject=Question%20about%20your%20Scalding%20Workshop) or for [information about consulting and training](mailto:dean.wampler@typesafe.com?subject=Hiring%20Dean%20Wampler) on Scala, Scalding, the [Typesafe Reactive Platform](http://typesafe.com/platform), and other Hadoop and *Big Data* technologies.
+I'm [Dean Wampler](mailto:dean@concurrentthought.com) from [Lightbend](http://lightbend.com). I prepared this workshop. Send me email with [questions about the workshop](mailto:dean@concurrentthought.com?subject=Question%20about%20your%20Scalding%20Workshop) or for [information about consulting and training](mailto:dean.wampler@lightbend.com?subject=Hiring%20Dean%20Wampler) on Scala, Scalding, the [Lightbend Reactive Platform](http://lightbend.com/platform), and other Hadoop and *Big Data* technologies.
 
 Some of the data used in these exercises was obtained from [InfoChimps](http://infochimps.com).
 
